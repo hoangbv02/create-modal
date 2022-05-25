@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Modal</title>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button type="button" class="open">Open Modal</button>
+    <div class="modal">
+        <div class="inner__modal">
+            <div class="modal__header">
+                <h3 class="header__title">Welcome to Nodemy</h3>
+                <span class="header__icon"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <div class="modal__body">
+                <h3 class="body__title">Modal</h3>
+                <p>Đây là phần body của modal</p>
+                <div class="modal__footer">
+                    <button type="button" class="body__close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btnElement= document.querySelector('.open');
+        const modalElement= document.querySelector('.modal');
+        const iconElement= document.querySelector('.header__icon');
+        const closeElement= document.querySelector('.body__close');
+        const innerElement= document.querySelector('.inner__modal')
+        const hiddenModal= () => {
+            modalElement.style.display="none"
+        }
+        btnElement.onclick= () => {
+            modalElement.style.display="flex"
+        }
+        innerElement.onclick= (e) => {
+            e.stopPropagation();
+        }
+        modalElement.addEventListener('click', hiddenModal);
+        iconElement.addEventListener('click', hiddenModal);
+        closeElement.addEventListener('click', hiddenModal);
+    </script>
+</body>
+</html>
